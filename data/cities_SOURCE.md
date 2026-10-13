@@ -21,3 +21,16 @@
   network access allows it.
 - Not yet joined to the country polygon data / WorldData.pointInCountry to stamp
   a BaseCountry per city -- that's a Studio-side step for when Studio's back up.
+
+## Trimmed to 50,000 (2026-10-13)
+`cities.csv` is now trimmed to ~50,000 cities (target set after comparing against
+the original game's ~6,698): all 34,135 "large" (>=15000 pop) cities, plus 15,865
+of the 35,560 "medium" (5000-14999 pop) cities to fill out to 50k.
+
+Caveat: there are no real population numbers within a tier to rank by, so the
+15,865 medium cities taken are just the first that many in file order -- NOT
+necessarily the 15,865 *biggest* medium cities. If that matters later, either
+hand-curate the cutoff or revisit once a real population source is reachable.
+
+The untrimmed 170,942-city set (all three tiers in full) is kept at `cities_full.csv`
+in case the full set or a different trim is wanted later.
