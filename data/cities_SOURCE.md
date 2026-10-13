@@ -22,15 +22,27 @@
 - Not yet joined to the country polygon data / WorldData.pointInCountry to stamp
   a BaseCountry per city -- that's a Studio-side step for when Studio's back up.
 
-## Trimmed to 50,000 (2026-10-13)
-`cities.csv` is now trimmed to ~50,000 cities (target set after comparing against
-the original game's ~6,698): all 34,135 "large" (>=15000 pop) cities, plus 15,865
-of the 35,560 "medium" (5000-14999 pop) cities to fill out to 50k.
+## Trimming history (2026-10-13)
+`cities.csv` went through a few sizes before landing at 10,000:
+50,000 -> 25,000 -> **10,000** (current), each time compared against the
+original game's city count (started ~10,000, pruned down to 6,698 final).
 
-Caveat: there are no real population numbers within a tier to rank by, so the
-15,865 medium cities taken are just the first that many in file order -- NOT
-necessarily the 15,865 *biggest* medium cities. If that matters later, either
-hand-curate the cutoff or revisit once a real population source is reachable.
+Current `cities.csv`: the first 10,000 of the 34,135 "large" (>=15000 pop)
+cities, in file order. This is large-tier only -- no medium/small cities --
+which fits the original's stated focus on urban population and significance
+rather than small towns.
 
-The untrimmed 170,942-city set (all three tiers in full) is kept at `cities_full.csv`
-in case the full set or a different trim is wanted later.
+Caveat (applies to every trim above): there are no real population numbers
+within a tier to rank by, so "first 10,000 in file order" is *a* set of
+significant cities, not provably the *biggest* 10,000. If that precision
+matters later, either hand-curate or revisit once a real population source
+is reachable.
+
+Because the set is now large-tier only, there's currently no data to drive a
+small/medium size-variation in markers (e.g. circle vs square) -- every city
+in the current set is the same tier. Worth keeping in mind when the marker
+rendering gets built: either accept uniform markers for now, or pull in some
+medium-tier cities later for visual variety.
+
+The untrimmed 170,942-city set (all three tiers in full) is kept at
+`cities_full.csv` in case the full set or a different trim is wanted later.
